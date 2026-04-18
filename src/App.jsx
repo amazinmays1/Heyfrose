@@ -12,6 +12,26 @@ const CONTACT = {
 
 const LOGO_SRC = "/FullLogo_NoBuffer.png";
 
+function BrandMark({ hero = false }) {
+  const wrap = hero
+    ? "w-full max-w-[320px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[700px] mx-auto"
+    : "w-full max-w-[170px] sm:max-w-[220px] md:max-w-[260px]";
+
+  return (
+    <div className={wrap}>
+      <img
+        src={LOGO_SRC}
+        alt="Hey Frosé Wine & Charcuterie Bar"
+        className="w-full h-auto"
+        width="1280"
+        height="407"
+        loading={hero ? "eager" : "lazy"}
+        decoding="async"
+      />
+    </div>
+  );
+}
+
 export default function HeyfroseWebsite() {
   const [page, setPage] = useState("home");
 
@@ -67,21 +87,6 @@ export default function HeyfroseWebsite() {
     []
   );
 
-  function BrandMark({ hero = false }) {
-  const wrap = hero
-    ? "w-full max-w-[320px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[700px] mx-auto"
-    : "w-full max-w-[170px] sm:max-w-[220px] md:max-w-[260px]";
-
-  return (
-    <div className={wrap}>
-      <img
-        src={LOGO_SRC}
-        alt="Hey Frosé Wine & Charcuterie Bar"
-        className="w-full h-auto"
-      />
-    </div>
-  );
-}
   function NavButton({ id, label }) {
     const active = page === id;
     return (
