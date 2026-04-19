@@ -134,7 +134,7 @@ const CONTACT = {
 const drinks = [
   {name:"Classic Frosé",        desc:"Rosé, strawberry, peach \u2014 clean, frozen, balanced.",                     price:"$14"},
   {name:"Peach Frosé",          desc:"Rosé blended with peach nectar \u2014 smooth, light, and summery.",           price:"$15"},
-  {name:"Strawberry Frosé",     desc:"Rosé with fresh strawberry pur\u00e9e \u2014 bright and refreshing.",        price:"$15"},
+  {name:"Strawberry Frosé",     desc:"Rosé with fresh strawberry puree \u2014 bright and refreshing.",        price:"$15"},
   {name:"Pink Sangria",               desc:"Fruit-forward frozen sangria with a soft finish.",                                    price:"$14"},
   {name:"Rosé Rita",            desc:"A tequila-forward frozen twist with citrus and blush fruit notes.",                  price:"$15"},
   {name:"Seasonal Pink Feature",      desc:"A rotating frozen pour inspired by the season and local moments.",                   price:"$16"},
@@ -164,7 +164,7 @@ const serif={fontFamily:"'Cormorant Garamond',Georgia,serif"};
 
 /* primitives */
 const Logo=({size=200,invert=false})=>(
-  <img src={LOGO} alt="Hey Fros\u00e9" style={{width:"100%",maxWidth:size,height:"auto",display:"block",filter:invert?"brightness(0) invert(1)":undefined}}/>
+  <img src={LOGO} alt="Hey Frosé" style={{width:"100%",maxWidth:size,height:"auto",display:"block",filter:invert?"brightness(0) invert(1)":undefined}}/>
 );
 const Eyebrow=({s,color=C.pink})=><p style={{fontSize:10,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.38em",color,marginBottom:0}}>{s}</p>;
 const Divider=()=><div style={{width:40,height:2,background:C.pinkLt,margin:"18px 0",borderRadius:2}}/>;
@@ -295,7 +295,7 @@ function App(){
   function Menu(){
     return(
       <>
-        <PageHero eyebrow="Menu" title="Fros\u00e9 and frozen drinks" body="Tight, brand-forward offerings designed for speed, consistency, and a higher-end feel."/>
+        <PageHero eyebrow="Menu" title="Frosé and frozen drinks" body="Tight, brand-forward offerings designed for speed, consistency, and a higher-end feel."/>
         <section className="sec-md">
           <div className="hf-wrap">
             <div className="g-auto">
