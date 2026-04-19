@@ -9,17 +9,114 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --pink:#d27887; --pink-deep:#b85f72; --pink-lt:#e8a8b2;
-  --pink-tint:#f7eaec; --pink-pale:#fdf4f5;
-  --ink:#0f0f0f; --ink-mid:#2a1e20; --muted:#6b5558;
-  --border:#ecdde0; --bg:#fdf8f6;
-}
+/* ── base ── */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+body{font-family:'Jost',sans-serif;background:#fdf8f6;color:#0f0f0f;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+
+/* ── layout helpers ── */
+.hf-wrap   {max-width:1280px;margin:0 auto;padding:0 40px}
+.hf-wrap-md{max-width:900px;margin:0 auto;padding:0 40px}
+.hf-wrap-sm{max-width:800px;margin:0 auto;padding:0 40px}
+
+/* ── grids ── */
+.g-hero  {display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center}
+.g-2     {display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g-3     {display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.g-auto  {display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.g-auto2 {display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.g-foot  {display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+.g-oc    {display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+
+/* ── section spacing ── */
+.sec     {padding:88px 0}
+.sec-md  {padding:64px 0 88px}
+.sec-sm  {padding:64px 0}
+.sec-xs  {padding:0 0 88px}
+.hero-sec{padding:80px 0 96px;position:relative;overflow:hidden}
+.hero-pg {padding:72px 0 80px}
+
+/* ── header ── */
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:10px 40px;max-width:1280px;margin:0 auto}
+.nav-pills{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+
+/* ── cards ── */
+.hf-card{background:#fff;border-radius:20px;padding:30px 28px;border:1px solid #ecdde0;position:relative;overflow:hidden}
+.hf-card-pk{background:#f7eaec;border-radius:20px;padding:30px 28px;border:1px solid #ecdde0}
+.hf-card-dk{background:#2a1e20;border-radius:20px;padding:30px 28px}
+
+/* ── buttons row ── */
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn-row-c{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px}
+
+/* ── faq ── */
+.faq-col{display:flex;flex-direction:column;gap:16px;margin-top:44px}
+
+/* ── foot bottom ── */
+.foot-btm{padding-top:24px;border-top:1px solid rgba(210,120,135,0.18);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;color:rgba(255,255,255,0.2);margin-top:48px;max-width:1280px;margin-left:auto;margin-right:auto}
+
+/* ── MT helpers ── */
+.mt-52{margin-top:52px}
+.mt-44{margin-top:44px}
+.mt-36{margin-top:36px}
+.mt-24{margin-top:24px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .g-hero{gap:40px}
+  .g-foot{gap:32px}
+}
+
+@media(max-width:900px){
+  .g-hero{grid-template-columns:1fr;gap:36px}
+  .g-foot{grid-template-columns:1fr 1fr;gap:28px}
+  .g-3{grid-template-columns:1fr 1fr;gap:20px}
+}
+
+@media(max-width:768px){
+  .hf-wrap,.hf-wrap-md,.hf-wrap-sm{padding:0 18px}
+  .hdr-inner{padding:10px 18px}
+
+  .g-hero{grid-template-columns:1fr;gap:28px}
+  .g-2{grid-template-columns:1fr;gap:16px}
+  .g-3{grid-template-columns:1fr;gap:16px}
+  .g-auto{grid-template-columns:1fr;gap:16px}
+  .g-auto2{grid-template-columns:1fr;gap:16px}
+  .g-foot{grid-template-columns:1fr;gap:24px}
+
+  .hero-sec{padding:40px 0 52px}
+  .hero-pg{padding:40px 0 48px}
+  .sec{padding:52px 0}
+  .sec-md{padding:40px 0 52px}
+  .sec-sm{padding:40px 0}
+  .sec-xs{padding:0 0 52px}
+
+  .hf-card{padding:22px 18px}
+  .hf-card-pk{padding:22px 18px}
+  .hf-card-dk{padding:22px 18px}
+
+  .mt-52{margin-top:32px}
+  .mt-44{margin-top:28px}
+  .mt-36{margin-top:24px}
+
+  .faq-col{margin-top:28px}
+  
+  .foot-btm{justify-content:center;text-align:center}
+}
+
+@media(max-width:480px){
+  .hf-wrap,.hf-wrap-md,.hf-wrap-sm{padding:0 14px}
+  .hdr-inner{padding:8px 14px}
+  .hf-card{padding:18px 14px}
+  .hf-card-pk{padding:18px 14px}
+  .hf-card-dk{padding:18px 14px}
+  .hero-sec{padding:32px 0 44px}
+  .g-3{grid-template-columns:1fr;gap:14px}
+  .g-oc{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
@@ -35,26 +132,26 @@ const CONTACT = {
 };
 
 const drinks = [
-  {name:"Classic Frosé",         desc:"Rosé, strawberry, peach \u2014 clean, frozen, balanced.",                          price:"$14"},
-  {name:"Peach Frosé",           desc:"Rosé blended with peach nectar \u2014 smooth, light, and summery.",                price:"$15"},
-  {name:"Strawberry Frosé",      desc:"Rosé with fresh strawberry purée \u2014 bright and refreshing.",              price:"$15"},
-  {name:"Pink Sangria",               desc:"Fruit-forward frozen sangria with a soft finish.",                                       price:"$14"},
-  {name:"Rosé Rita",             desc:"A tequila-forward frozen twist with citrus and blush fruit notes.",                     price:"$15"},
-  {name:"Seasonal Pink Feature",      desc:"A rotating frozen pour inspired by the season and local moments.",                      price:"$16"},
+  {name:"Classic Fros\u00e9",        desc:"Ros\u00e9, strawberry, peach \u2014 clean, frozen, balanced.",                     price:"$14"},
+  {name:"Peach Fros\u00e9",          desc:"Ros\u00e9 blended with peach nectar \u2014 smooth, light, and summery.",           price:"$15"},
+  {name:"Strawberry Fros\u00e9",     desc:"Ros\u00e9 with fresh strawberry pur\u00e9e \u2014 bright and refreshing.",        price:"$15"},
+  {name:"Pink Sangria",               desc:"Fruit-forward frozen sangria with a soft finish.",                                    price:"$14"},
+  {name:"Ros\u00e9 Rita",            desc:"A tequila-forward frozen twist with citrus and blush fruit notes.",                  price:"$15"},
+  {name:"Seasonal Pink Feature",      desc:"A rotating frozen pour inspired by the season and local moments.",                   price:"$16"},
 ];
 const charcuterie = [
-  {name:"Charcuterie Cups", detail:"Individual grab-and-go cups with grapes, cheese, meats, and nuts.",                     price:"$10+"},
-  {name:"Mini Boards",      detail:"A polished pairing board for two or small groups.",                                      price:"$18+"},
-  {name:"Party Trays",      detail:"Larger-format trays for hosting, birthdays, showers, and business events.",              price:"$45+"},
-  {name:"Brunch Boxes",     detail:"Elevated snack boxes designed to pair with frozen drinks and daytime events.",            price:"$22+"},
+  {name:"Charcuterie Cups", detail:"Individual grab-and-go cups with grapes, cheese, meats, and nuts.",          price:"$10+"},
+  {name:"Mini Boards",      detail:"A polished pairing board for two or small groups.",                           price:"$18+"},
+  {name:"Party Trays",      detail:"Larger-format trays for hosting, birthdays, showers, and business events.",  price:"$45+"},
+  {name:"Brunch Boxes",     detail:"Elevated snack boxes designed to pair with frozen drinks and daytime events.",price:"$22+"},
 ];
 const cateringPacks = [
-  {title:"Mini Frosé Flight", sub:"12 minis \u00b7 up to 3 flavors",    desc:"Perfect for birthdays, showers, office treats, and girls' nights.",                                                  price:"Starting at $72"},
-  {title:"Party Pack",             sub:"24 servings \u00b7 up to 4 flavors", desc:"An easy crowd-pleaser for larger gatherings and elevated celebrations.",                                              price:"Starting at $138"},
-  {title:"Heyfrose Bar",           sub:"Large-format service + add-ons",     desc:"Built for bigger events with optional charcuterie, branded setup, and premium coordination.",                         price:"Custom quote"},
+  {title:"Mini Fros\u00e9 Flight",sub:"12 minis \u00b7 up to 3 flavors",   desc:"Perfect for birthdays, showers, office treats, and girls\u2019 nights.",                        price:"Starting at $72"},
+  {title:"Party Pack",             sub:"24 servings \u00b7 up to 4 flavors",desc:"An easy crowd-pleaser for larger gatherings and elevated celebrations.",                          price:"Starting at $138"},
+  {title:"Heyfrose Bar",           sub:"Large-format service + add-ons",     desc:"Built for bigger events with optional charcuterie, branded setup, and premium coordination.",     price:"Custom quote"},
 ];
-const occasions = ["Bridal showers","Birthdays","Corporate events","Launch parties","Pool days","Girls' nights","Housewarmings","Weekend hosting"];
-const faqs = [
+const occasions=["Bridal showers","Birthdays","Corporate events","Launch parties","Pool days","Girls\u2019 nights","Housewarmings","Weekend hosting"];
+const faqs=[
   {q:"How far ahead should I place a catering order?",  a:"We recommend at least 48 hours for small orders. For large events or white glove service, 3\u20135 days is ideal."},
   {q:"Can I mix flavors in one order?",                 a:"Yes. Most packs are designed for 3\u20134 flavors so guests get variety without overcomplicating the order."},
   {q:"Do you deliver?",                                 a:"Pickup is standard. Delivery is available for larger catering and white glove orders depending on location."},
@@ -62,113 +159,122 @@ const faqs = [
   {q:"Can I add charcuterie to catering?",              a:"Yes. Cups, trays, and boxes are designed to pair directly with drinks and increase the experience and order value."},
 ];
 
-const C = {
-  pink:"#d27887",pinkDeep:"#b85f72",pinkLt:"#e8a8b2",
-  pinkTint:"#f7eaec",pinkPale:"#fdf4f5",
-  ink:"#0f0f0f",inkMid:"#2a1e20",muted:"#6b5558",
-  border:"#ecdde0",bg:"#fdf8f6"
-};
-const serif = {fontFamily:"'Cormorant Garamond',Georgia,serif"};
+const C={pink:"#d27887",pinkDeep:"#b85f72",pinkLt:"#e8a8b2",pinkTint:"#f7eaec",pinkPale:"#fdf4f5",ink:"#0f0f0f",inkMid:"#2a1e20",muted:"#6b5558",border:"#ecdde0",bg:"#fdf8f6"};
+const serif={fontFamily:"'Cormorant Garamond',Georgia,serif"};
 
-/* ── primitives ── */
-const Logo = ({size=200,invert=false}) => (
-  <img src={LOGO} alt="Hey Frosé" style={{width:"100%",maxWidth:size,height:"auto",display:"block",filter:invert?"brightness(0) invert(1)":undefined}}/>
+/* primitives */
+const Logo=({size=200,invert=false})=>(
+  <img src={LOGO} alt="Hey Fros\u00e9" style={{width:"100%",maxWidth:size,height:"auto",display:"block",filter:invert?"brightness(0) invert(1)":undefined}}/>
 );
-const Eyebrow = ({s,color=C.pink}) => <p style={{fontSize:10,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.38em",color,marginBottom:0}}>{s}</p>;
-const Divider = () => <div style={{width:40,height:2,background:C.pinkLt,margin:"18px 0",borderRadius:2}}/>;
-const BtnPink = ({children,onClick,href}) => {
-  const st={background:C.pink,color:"#fff",borderRadius:999,padding:"13px 30px",fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",display:"inline-block",cursor:"pointer",fontFamily:"inherit",border:"none"};
+const Eyebrow=({s,color=C.pink})=><p style={{fontSize:10,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.38em",color,marginBottom:0}}>{s}</p>;
+const Divider=()=><div style={{width:40,height:2,background:C.pinkLt,margin:"18px 0",borderRadius:2}}/>;
+
+const BtnPink=({children,onClick,href})=>{
+  const st={background:C.pink,color:"#fff",borderRadius:999,padding:"13px 28px",fontSize:11,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",display:"inline-block",cursor:"pointer",fontFamily:"inherit",border:"none",whiteSpace:"nowrap"};
   return href?<a href={href} style={st}>{children}</a>:<button style={st} onClick={onClick}>{children}</button>;
 };
-const BtnGhost = ({children,onClick}) => (
-  <button onClick={onClick} style={{background:"transparent",color:C.muted,borderRadius:999,padding:"12px 28px",fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",border:"1.5px solid "+C.border,cursor:"pointer",fontFamily:"inherit"}}>{children}</button>
+const BtnGhost=({children,onClick})=>(
+  <button onClick={onClick} style={{background:"transparent",color:C.muted,borderRadius:999,padding:"12px 26px",fontSize:11,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",border:"1.5px solid "+C.border,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>{children}</button>
 );
-const Card = ({children,style={},top}) => (
-  <div style={{background:"#fff",borderRadius:20,padding:"30px 28px",border:"1px solid "+C.border,position:"relative",overflow:"hidden",...style}}>
+
+/* card wrappers that add optional top bar */
+const Card=({children,className="hf-card",top,extraStyle={}})=>(
+  <div className={className} style={extraStyle}>
     {top&&<div style={{position:"absolute",top:0,left:0,right:0,height:3,background:top}}/>}
     {children}
   </div>
 );
-const DarkCard = ({children,style={}}) => <div style={{background:C.inkMid,borderRadius:20,padding:"30px 28px",...style}}>{children}</div>;
-const PinkCard = ({children,style={}}) => <div style={{background:C.pinkTint,borderRadius:20,padding:"30px 28px",border:"1px solid "+C.border,...style}}>{children}</div>;
-const H2 = ({children}) => <h2 style={{...serif,fontSize:"clamp(28px,3.8vw,50px)",lineHeight:1.12,color:C.ink,marginTop:12}}>{children}</h2>;
-const H3 = ({children,style={}}) => <h3 style={{...serif,fontSize:"clamp(20px,2.2vw,28px)",lineHeight:1.2,color:C.ink,marginTop:10,...style}}>{children}</h3>;
-const Body = ({children,style={}}) => <p style={{fontSize:14,lineHeight:1.85,color:C.muted,marginTop:12,...style}}>{children}</p>;
-const Price = ({children}) => <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.22em",color:C.pink,marginTop:18}}>{children}</p>;
-const SectionHead = ({eyebrow,title,body,align="center"}) => (
+
+const H2=({children})=><h2 style={{...serif,fontSize:"clamp(26px,3.5vw,48px)",lineHeight:1.12,color:C.ink,marginTop:12}}>{children}</h2>;
+const H3=({children,style={}})=><h3 style={{...serif,fontSize:"clamp(18px,2vw,26px)",lineHeight:1.2,color:C.ink,marginTop:10,...style}}>{children}</h3>;
+const Body=({children,style={}})=><p style={{fontSize:14,lineHeight:1.85,color:C.muted,marginTop:12,...style}}>{children}</p>;
+const Price=({children})=><p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.22em",color:C.pink,marginTop:18}}>{children}</p>;
+
+const SectionHead=({eyebrow,title,body,align="center"})=>(
   <div style={{maxWidth:680,margin:align==="center"?"0 auto":"0",textAlign:align}}>
     <Eyebrow s={eyebrow}/>
     <H2>{title}</H2>
     {body&&<Body style={{marginTop:14,fontSize:15}}>{body}</Body>}
   </div>
 );
-const PageHero = ({eyebrow,title,body,children}) => (
-  <section style={{background:"linear-gradient(160deg,"+C.pinkPale+" 0%,#fff 65%)",borderBottom:"1px solid "+C.border,padding:"72px 0 80px"}}>
-    <div style={{maxWidth:1280,margin:"0 auto",padding:"0 40px"}}>
+
+const PageHero=({eyebrow,title,body,children})=>(
+  <section className="hero-pg" style={{background:"linear-gradient(160deg,"+C.pinkPale+" 0%,#fff 65%)",borderBottom:"1px solid "+C.border}}>
+    <div className="hf-wrap">
       <SectionHead eyebrow={eyebrow} title={title} body={body}/>
       {children}
     </div>
   </section>
 );
-const PinkBanner = ({text}) => (
-  <div style={{background:"linear-gradient(90deg,"+C.pinkDeep+","+C.pink+")",padding:"60px 40px",textAlign:"center"}}>
-    <p style={{...serif,fontSize:"clamp(22px,3.5vw,44px)",color:"#fff",fontStyle:"italic",fontWeight:300}}>{text}</p>
+
+const PinkBanner=({text})=>(
+  <div style={{background:"linear-gradient(90deg,"+C.pinkDeep+","+C.pink+")",padding:"52px 24px",textAlign:"center"}}>
+    <p style={{...serif,fontSize:"clamp(20px,3.2vw,42px)",color:"#fff",fontStyle:"italic",fontWeight:300}}>{text}</p>
   </div>
 );
 
 /* ── App ── */
-function App() {
-  const [page,setPage] = React.useState("home");
-  const go = setPage;
-  const navItems = [
+function App(){
+  const [page,setPage]=React.useState("home");
+  const go=setPage;
+  const navItems=[
     {id:"home",label:"Home"},{id:"menu",label:"Menu"},
     {id:"charcuterie",label:"Wine & Charcuterie"},{id:"catering",label:"Catering"},{id:"contact",label:"Visit Us"},
   ];
 
-  function Home() {
-    return (
+  function Home(){
+    return(
       <>
-        <section style={{background:"linear-gradient(150deg,"+C.pinkPale+" 0%,#fff 55%)",borderBottom:"1px solid "+C.border,padding:"80px 0 96px",position:"relative",overflow:"hidden"}}>
+        {/* HERO */}
+        <section className="hero-sec" style={{background:"linear-gradient(150deg,"+C.pinkPale+" 0%,#fff 55%)",borderBottom:"1px solid "+C.border}}>
           <div style={{position:"absolute",top:-200,right:-200,width:700,height:700,borderRadius:"50%",background:"radial-gradient(circle,"+C.pinkTint+" 0%,transparent 65%)",pointerEvents:"none"}}/>
           <div style={{position:"absolute",bottom:-100,left:-100,width:400,height:400,borderRadius:"50%",background:"radial-gradient(circle,"+C.pinkTint+" 0%,transparent 70%)",pointerEvents:"none"}}/>
-          <div style={{maxWidth:1280,margin:"0 auto",padding:"0 40px",position:"relative",display:"grid",gridTemplateColumns:"1.15fr 0.85fr",gap:64,alignItems:"center"}}>
-            <div>
-              <Logo size={460}/>
-              <Divider/>
-              <h1 style={{...serif,fontSize:"clamp(34px,5vw,68px)",lineHeight:1.08,color:C.ink,maxWidth:620}}>
-                Frozen drinks, catering &amp; charcuterie &mdash; boutique polish.
-              </h1>
-              <Body style={{fontSize:17,maxWidth:520,marginTop:20}}>Built to feel premium, easy, and giftable &mdash; from individual Fros&eacute; moments to full event packages.</Body>
-              <div style={{display:"flex",flexWrap:"wrap",gap:12,marginTop:36}}>
-                <BtnPink onClick={()=>go("menu")}>View Menu</BtnPink>
-                <BtnGhost onClick={()=>go("catering")}>Catering</BtnGhost>
-                <BtnGhost onClick={()=>go("contact")}>Visit Us</BtnGhost>
-              </div>
-            </div>
-            <div style={{display:"flex",flexDirection:"column",gap:20}}>
-              <PinkCard>
-                <Eyebrow s="Signature format"/>
-                <H3>Fros&eacute; flights, party packs, and polished pickup.</H3>
-                <Body>A premium frozen cocktail concept with menu discipline, strong visuals, and event-ready packaging.</Body>
-              </PinkCard>
-              <DarkCard>
-                <Eyebrow s="Best for" color={C.pinkLt}/>
-                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginTop:14}}>
-                  {occasions.slice(0,6).map(o=>(
-                    <span key={o} style={{background:"rgba(210,120,135,0.16)",borderRadius:10,padding:"8px 12px",fontSize:12,color:C.pinkLt,letterSpacing:"0.03em"}}>{o}</span>
-                  ))}
+          <div className="hf-wrap" style={{position:"relative"}}>
+            <div className="g-hero">
+              {/* left */}
+              <div>
+                <Logo size={440}/>
+                <Divider/>
+                <h1 style={{...serif,fontSize:"clamp(28px,4.5vw,64px)",lineHeight:1.1,color:C.ink,maxWidth:620,marginTop:0}}>
+                  Frozen drinks, catering &amp; charcuterie &mdash; boutique polish.
+                </h1>
+                <Body style={{fontSize:"clamp(15px,1.5vw,17px)",maxWidth:520,marginTop:16}}>
+                  Built to feel premium, easy, and giftable &mdash; from individual Fros&eacute; moments to full event packages.
+                </Body>
+                <div className="btn-row">
+                  <BtnPink onClick={()=>go("menu")}>View Menu</BtnPink>
+                  <BtnGhost onClick={()=>go("catering")}>Catering</BtnGhost>
+                  <BtnGhost onClick={()=>go("contact")}>Visit Us</BtnGhost>
                 </div>
-              </DarkCard>
+              </div>
+              {/* right */}
+              <div style={{display:"flex",flexDirection:"column",gap:20}}>
+                <Card className="hf-card-pk">
+                  <Eyebrow s="Signature format"/>
+                  <H3>Fros&eacute; flights, party packs, and polished pickup.</H3>
+                  <Body>A premium frozen cocktail concept with menu discipline, strong visuals, and event-ready packaging.</Body>
+                </Card>
+                <Card className="hf-card-dk">
+                  <Eyebrow s="Best for" color={C.pinkLt}/>
+                  <div className="g-oc">
+                    {occasions.slice(0,6).map(o=>(
+                      <span key={o} style={{background:"rgba(210,120,135,0.16)",borderRadius:10,padding:"8px 12px",fontSize:12,color:C.pinkLt,letterSpacing:"0.03em"}}>{o}</span>
+                    ))}
+                  </div>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
-        <section style={{padding:"88px 0"}}>
-          <div style={{maxWidth:1280,margin:"0 auto",padding:"0 40px"}}>
+
+        {/* WHY */}
+        <section className="sec">
+          <div className="hf-wrap">
             <SectionHead eyebrow="Why Heyfrose" title="A polished brand experience, not just another frozen drink stop." body="Clear offers, easy conversion paths, and dedicated sections for menu, catering, white-glove service, and local visit info."/>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:24,marginTop:52}}>
+            <div className={"g-3 mt-52"}>
               {[
-                {n:"01",t:"Frozen menu",d:"A curated Frosé-first lineup built to feel premium and easy to order.",p:"menu",l:"Explore drinks"},
-                {n:"02",t:"Wine & charcuterie",d:"Upsell-friendly trays, boxes, and cups that raise ticket size.",p:"charcuterie",l:"See pairings"},
+                {n:"01",t:"Frozen menu",d:"A curated Fros\u00e9-first lineup built to feel premium and easy to order.",p:"menu",l:"Explore drinks"},
+                {n:"02",t:"Wine & charcuterie",d:"Upsell-friendly trays, boxes, and cups that raise ticket size and strengthen the brand.",p:"charcuterie",l:"See pairings"},
                 {n:"03",t:"Catering",d:"A dedicated funnel for events, office orders, and premium coordination.",p:"catering",l:"Start catering"},
               ].map(item=>(
                 <Card key={item.n} top={"linear-gradient(90deg,"+C.pink+","+C.pinkLt+")"}>
@@ -186,58 +292,63 @@ function App() {
     );
   }
 
-  function Menu() {
-    return (
+  function Menu(){
+    return(
       <>
-        <PageHero eyebrow="Menu" title="Frosé and frozen drinks" body="Tight, brand-forward offerings designed for speed, consistency, and a higher-end feel."/>
-        <section style={{padding:"64px 0 88px"}}>
-          <div style={{maxWidth:1280,margin:"0 auto",padding:"0 40px",display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))",gap:24}}>
-            {drinks.map(d=>(
-              <Card key={d.name}>
-                <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:12}}>
-                  <H3 style={{marginTop:0,fontSize:22}}>{d.name}</H3>
-                  <span style={{background:C.pinkTint,color:C.pinkDeep,border:"1px solid "+C.border,borderRadius:999,padding:"4px 12px",fontSize:12,fontWeight:700,whiteSpace:"nowrap",flexShrink:0}}>{d.price}</span>
-                </div>
-                <Body>{d.desc}</Body>
-              </Card>
-            ))}
+        <PageHero eyebrow="Menu" title="Fros\u00e9 and frozen drinks" body="Tight, brand-forward offerings designed for speed, consistency, and a higher-end feel."/>
+        <section className="sec-md">
+          <div className="hf-wrap">
+            <div className="g-auto">
+              {drinks.map(d=>(
+                <Card key={d.name}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:12}}>
+                    <H3 style={{marginTop:0,fontSize:"clamp(17px,1.8vw,22px)"}}>{d.name}</H3>
+                    <span style={{background:C.pinkTint,color:C.pinkDeep,border:"1px solid "+C.border,borderRadius:999,padding:"4px 12px",fontSize:12,fontWeight:700,whiteSpace:"nowrap",flexShrink:0}}>{d.price}</span>
+                  </div>
+                  <Body>{d.desc}</Body>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
       </>
     );
   }
 
-  function Charcuterie() {
-    return (
+  function Charcuterie(){
+    return(
       <>
         <PageHero eyebrow="Wine & Charcuterie" title="Trays, cups, and pairing pieces" body="Designed to make Heyfrose feel complete, giftable, and event-ready."/>
-        <section style={{padding:"64px 0 88px"}}>
-          <div style={{maxWidth:1280,margin:"0 auto",padding:"0 40px",display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))",gap:24}}>
-            {charcuterie.map(item=>(
-              <Card key={item.name} top={"linear-gradient(90deg,"+C.pink+","+C.pinkLt+")"}>
-                <H3 style={{marginTop:0,fontSize:22}}>{item.name}</H3>
-                <Body>{item.detail}</Body>
-                <Price>{item.price}</Price>
-              </Card>
-            ))}
+        <section className="sec-md">
+          <div className="hf-wrap">
+            <div className="g-auto2">
+              {charcuterie.map(item=>(
+                <Card key={item.name} top={"linear-gradient(90deg,"+C.pink+","+C.pinkLt+")"}>
+                  <H3 style={{marginTop:0,fontSize:"clamp(17px,1.8vw,22px)"}}>{item.name}</H3>
+                  <Body>{item.detail}</Body>
+                  <Price>{item.price}</Price>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
       </>
     );
   }
 
-  function Catering() {
-    return (
+  function Catering(){
+    return(
       <>
         <PageHero eyebrow="Catering" title="Bring Heyfrose to the party" body="From smaller celebrations to polished event drops, Heyfrose catering is built to feel premium and easy to order.">
-          <div style={{display:"flex",gap:12,justifyContent:"center",marginTop:36,flexWrap:"wrap"}}>
+          <div className="btn-row-c">
             <BtnPink href={"mailto:"+CONTACT.email}>Start a catering order</BtnPink>
             <BtnGhost onClick={()=>go("contact")}>Find my Heyfrose</BtnGhost>
           </div>
         </PageHero>
-        <section style={{padding:"64px 0 0"}}>
-          <div style={{maxWidth:1280,margin:"0 auto",padding:"0 40px"}}>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:24}}>
+
+        <section className="sec-sm">
+          <div className="hf-wrap">
+            <div className="g-3">
               {cateringPacks.map((p,i)=>(
                 <Card key={p.title} top={i===1?"linear-gradient(90deg,"+C.pinkDeep+","+C.pink+")":"linear-gradient(90deg,"+C.pinkLt+","+C.border+")"}>
                   <Eyebrow s={p.sub}/>
@@ -249,50 +360,55 @@ function App() {
             </div>
           </div>
         </section>
-        <PinkBanner text="Built for the moments worth remembering." />
-        <section style={{padding:"64px 0"}}>
-          <div style={{maxWidth:1280,margin:"0 auto",padding:"0 40px",display:"grid",gridTemplateColumns:"1fr 1fr",gap:24}}>
-            <Card>
-              <Eyebrow s="Flavor flexibility"/>
-              <H3>Rotating Fros&eacute; lineup</H3>
-              <Body>Choose a curated mix of Classic Fros&eacute;, Peach Fros&eacute;, Strawberry Fros&eacute;, and seasonal pink pours &mdash; events that feel simple to order but still feel premium.</Body>
-            </Card>
-            <DarkCard>
-              <Eyebrow s="Ideal occasions" color={C.pinkLt}/>
-              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginTop:14}}>
-                {occasions.map(o=>(
-                  <span key={o} style={{background:"rgba(210,120,135,0.16)",borderRadius:10,padding:"8px 12px",fontSize:12,color:C.pinkLt}}>{o}</span>
-                ))}
-              </div>
-            </DarkCard>
-          </div>
-          <div style={{maxWidth:1280,margin:"24px auto 0",padding:"0 40px",display:"grid",gridTemplateColumns:"1fr 1fr",gap:24}}>
-            <Card>
-              <Eyebrow s="White Glove Service"/>
-              <H3>Large orders, business gifting, premium coordination</H3>
-              <ul style={{fontSize:14,lineHeight:1.85,color:C.muted,marginTop:12,paddingLeft:18}}>
-                {["Large-format catering orders","Office celebrations and client gifting","Multi-drop coordination","Custom charcuterie + frozen drink bundles","Premium event support for launches"].map(l=><li key={l}>{l}</li>)}
-              </ul>
-            </Card>
-            <PinkCard>
-              <Eyebrow s="Business contact"/>
-              <H3>Need a custom quote?</H3>
-              <Body>Our white-glove team can help with larger event planning, recurring office needs, and premium service requests.</Body>
-              <div style={{marginTop:20,display:"flex",flexDirection:"column",gap:8,fontSize:14,color:C.muted}}>
-                <div>Call: <a href={CONTACT.phoneHref} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.phone}</a></div>
-                <div>Email: <a href={"mailto:"+CONTACT.email} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.email}</a></div>
-                <div>Hours: Monday&ndash;Friday &middot; 9am&ndash;4pm</div>
-              </div>
-            </PinkCard>
+
+        <PinkBanner text="Built for the moments worth remembering."/>
+
+        <section className="sec-sm">
+          <div className="hf-wrap">
+            <div className="g-2">
+              <Card>
+                <Eyebrow s="Flavor flexibility"/>
+                <H3>Rotating Fros&eacute; lineup</H3>
+                <Body>Choose a curated mix of Classic Fros&eacute;, Peach Fros&eacute;, Strawberry Fros&eacute;, and seasonal pink pours &mdash; events that feel simple to order but still feel premium.</Body>
+              </Card>
+              <Card className="hf-card-dk">
+                <Eyebrow s="Ideal occasions" color={C.pinkLt}/>
+                <div className="g-oc">
+                  {occasions.map(o=>(
+                    <span key={o} style={{background:"rgba(210,120,135,0.16)",borderRadius:10,padding:"8px 12px",fontSize:12,color:C.pinkLt}}>{o}</span>
+                  ))}
+                </div>
+              </Card>
+            </div>
+            <div className={"g-2 mt-24"}>
+              <Card>
+                <Eyebrow s="White Glove Service"/>
+                <H3>Large orders, business gifting, premium coordination</H3>
+                <ul style={{fontSize:14,lineHeight:1.85,color:C.muted,marginTop:12,paddingLeft:18}}>
+                  {["Large-format catering orders","Office celebrations and client gifting","Multi-drop coordination","Custom charcuterie + frozen drink bundles","Premium event support for launches"].map(l=><li key={l}>{l}</li>)}
+                </ul>
+              </Card>
+              <Card className="hf-card-pk">
+                <Eyebrow s="Business contact"/>
+                <H3>Need a custom quote?</H3>
+                <Body>Our white-glove team can help with larger event planning, recurring office needs, and premium service requests.</Body>
+                <div style={{marginTop:20,display:"flex",flexDirection:"column",gap:8,fontSize:14,color:C.muted}}>
+                  <div>Call: <a href={CONTACT.phoneHref} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.phone}</a></div>
+                  <div>Email: <a href={"mailto:"+CONTACT.email} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.email}</a></div>
+                  <div>Hours: Monday&ndash;Friday &middot; 9am&ndash;4pm</div>
+                </div>
+              </Card>
+            </div>
           </div>
         </section>
-        <section style={{padding:"0 0 88px"}}>
-          <div style={{maxWidth:800,margin:"0 auto",padding:"0 40px"}}>
+
+        <section className="sec-xs">
+          <div className="hf-wrap-sm">
             <SectionHead eyebrow="FAQ" title="Common questions"/>
-            <div style={{display:"flex",flexDirection:"column",gap:16,marginTop:44}}>
+            <div className="faq-col">
               {faqs.map(item=>(
                 <Card key={item.q}>
-                  <H3 style={{marginTop:0,fontSize:20}}>{item.q}</H3>
+                  <H3 style={{marginTop:0,fontSize:"clamp(16px,1.6vw,19px)"}}>{item.q}</H3>
                   <Body>{item.a}</Body>
                 </Card>
               ))}
@@ -303,36 +419,38 @@ function App() {
     );
   }
 
-  function Contact() {
-    return (
+  function Contact(){
+    return(
       <>
         <PageHero eyebrow="Visit Us" title="Come by for frozen drinks, pickups, and event orders" body="Everything you need to visit, order, or reach out."/>
-        <section style={{padding:"64px 0 88px"}}>
-          <div style={{maxWidth:860,margin:"0 auto",padding:"0 40px",display:"grid",gridTemplateColumns:"1fr 1fr",gap:24}}>
-            <Card top={"linear-gradient(90deg,"+C.pinkDeep+","+C.pink+")"}>
-              <H3 style={{marginTop:0}}>Store details</H3>
-              <Divider/>
-              <div style={{display:"flex",flexDirection:"column",gap:8,fontSize:14,color:C.muted,lineHeight:1.85}}>
-                <div>{CONTACT.addr1}</div><div>{CONTACT.addr2}</div><div>{CONTACT.hours}</div>
-                <a href={"mailto:"+CONTACT.email} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.email}</a>
-                <a href={CONTACT.phoneHref} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.phone}</a>
-              </div>
-            </Card>
-            <PinkCard>
-              <H3 style={{marginTop:0}}>Need help?</H3>
-              <Divider/>
-              <Body>Use this page for everyday visits, pickup questions, and general inquiries.</Body>
-              <Body>For larger orders and business support, head to Catering.</Body>
-              <div style={{marginTop:24}}><BtnPink onClick={()=>go("catering")}>Catering info</BtnPink></div>
-            </PinkCard>
+        <section className="sec-md">
+          <div className="hf-wrap-md">
+            <div className="g-2">
+              <Card top={"linear-gradient(90deg,"+C.pinkDeep+","+C.pink+")"}>
+                <H3 style={{marginTop:0}}>Store details</H3>
+                <Divider/>
+                <div style={{display:"flex",flexDirection:"column",gap:8,fontSize:14,color:C.muted,lineHeight:1.85}}>
+                  <div>{CONTACT.addr1}</div><div>{CONTACT.addr2}</div><div>{CONTACT.hours}</div>
+                  <a href={"mailto:"+CONTACT.email} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.email}</a>
+                  <a href={CONTACT.phoneHref} style={{color:C.pink,textDecoration:"underline",textUnderlineOffset:3}}>{CONTACT.phone}</a>
+                </div>
+              </Card>
+              <Card className="hf-card-pk">
+                <H3 style={{marginTop:0}}>Need help?</H3>
+                <Divider/>
+                <Body>Use this page for everyday visits, pickup questions, and general inquiries.</Body>
+                <Body>For larger orders and business support, head to Catering.</Body>
+                <div style={{marginTop:24}}><BtnPink onClick={()=>go("catering")}>Catering info</BtnPink></div>
+              </Card>
+            </div>
           </div>
         </section>
       </>
     );
   }
 
-  function renderPage() {
-    switch(page) {
+  function renderPage(){
+    switch(page){
       case "menu":        return <Menu/>;
       case "charcuterie": return <Charcuterie/>;
       case "catering":    return <Catering/>;
@@ -341,25 +459,35 @@ function App() {
     }
   }
 
-  return (
+  return(
     <div style={{minHeight:"100vh",background:C.bg}}>
+      {/* HEADER */}
       <header style={{position:"sticky",top:0,zIndex:50,background:"rgba(253,244,245,0.94)",backdropFilter:"blur(16px)",borderBottom:"1px solid "+C.border}}>
-        <div style={{maxWidth:1280,margin:"0 auto",padding:"10px 40px",display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:12}}>
-          <button onClick={()=>go("home")} style={{background:"none",border:"none",cursor:"pointer",padding:0}}><Logo size={180}/></button>
-          <nav style={{display:"flex",flexWrap:"wrap",gap:6,alignItems:"center"}}>
+        <div className="hdr-inner">
+          <button onClick={()=>go("home")} style={{background:"none",border:"none",cursor:"pointer",padding:0,flexShrink:0}}>
+            <Logo size={180}/>
+          </button>
+          <nav className="nav-pills">
             {navItems.map(item=>{
               const active=page===item.id;
-              return <button key={item.id} onClick={()=>go(item.id)} style={{background:active?C.pink:"transparent",color:active?"#fff":C.muted,borderRadius:999,padding:"8px 18px",fontSize:11,fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase",border:active?"none":"1px solid "+C.border,cursor:"pointer",fontFamily:"inherit"}}>{item.label}</button>;
+              return(
+                <button key={item.id} onClick={()=>go(item.id)} style={{background:active?C.pink:"transparent",color:active?"#fff":C.muted,borderRadius:999,padding:"8px 16px",fontSize:11,fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase",border:active?"none":"1px solid "+C.border,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>{item.label}</button>
+              );
             })}
           </nav>
         </div>
       </header>
+
       <main>{renderPage()}</main>
+
+      {/* FOOTER */}
       <footer style={{background:C.inkMid,padding:"64px 40px 40px"}}>
-        <div style={{maxWidth:1280,margin:"0 auto",display:"grid",gridTemplateColumns:"2fr 1fr 1fr",gap:48}}>
+        <div className="g-foot" style={{maxWidth:1280,margin:"0 auto"}}>
           <div>
             <Logo size={200} invert/>
-            <p style={{fontSize:13,lineHeight:1.9,color:"rgba(255,255,255,0.45)",marginTop:16,maxWidth:360}}>A Fros&eacute;-first frozen drink concept with wine, charcuterie, catering, and polished event-ready ordering.</p>
+            <p style={{fontSize:13,lineHeight:1.9,color:"rgba(255,255,255,0.45)",marginTop:16,maxWidth:360}}>
+              A Fros&eacute;-first frozen drink concept with wine, charcuterie, catering, and polished event-ready ordering.
+            </p>
           </div>
           <div>
             <p style={{fontSize:10,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.28em",color:C.pinkLt}}>Explore</p>
@@ -378,7 +506,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div style={{maxWidth:1280,margin:"48px auto 0",paddingTop:24,borderTop:"1px solid rgba(210,120,135,0.18)",display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:8,fontSize:11,color:"rgba(255,255,255,0.2)"}}>
+        <div className="foot-btm">
           <span>&copy; 2025 Hey Fros&eacute; Wine &amp; Charcuterie Bar. All rights reserved.</span>
           <span style={{color:"rgba(210,120,135,0.4)"}}>Savannah, GA</span>
         </div>
