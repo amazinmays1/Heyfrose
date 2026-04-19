@@ -266,7 +266,7 @@ export default function HeyfroseWebsite() {
   function CateringPage() {
     return (
       <>
-        <section className="border-b border-rose-100 bg-[linear-gradient(180deg,#fff8f9_0%,#fff 100%)]">
+        <section className="border-b border-rose-100 bg-[linear-gradient(180deg,#fff8f9_0%,#ffffff_100%)]">
           <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20">
             <SectionHeading eyebrow="Catering" title="Bring Heyfrose to the party" body="From smaller celebrations to polished event drops, Heyfrose catering is built to feel premium and easy to order." />
             <div className="mt-10 flex flex-wrap justify-center gap-4">
